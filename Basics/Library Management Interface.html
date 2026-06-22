@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management Interface</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+            font-size: 18px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                background-color: lightblue;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Library Management Interface</h1>
+
+    <h2>Available Books</h2>
+
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Status</th>
+        </tr>
+
+        <tr>
+            <td>101</td>
+            <td>Java Programming</td>
+            <td>Herbert Schildt</td>
+            <td>Available</td>
+        </tr>
+
+        <tr>
+            <td>102</td>
+            <td>Database Systems</td>
+            <td>Korth</td>
+            <td>Issued</td>
+        </tr>
+
+        <tr>
+            <td>103</td>
+            <td>Computer Networks</td>
+            <td>Forouzan</td>
+            <td>Available</td>
+        </tr>
+    </table>
+
+    <h2>Issue Book</h2>
+
+    <form>
+        <label for="student-name">Student Name:</label><br>
+        <input type="text" id="student-name" name="student-name" placeholder="Enter student name"><br><br>
+
+        <label for="book-id">Book ID:</label><br>
+        <input type="text" id="book-id" name="book-id" placeholder="Enter book ID"><br><br>
+
+        <input type="submit" value="Issue Book">
+    </form>
+
+</body>
+
+</html>

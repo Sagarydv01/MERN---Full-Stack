@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Portal</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        form{
+            width: 350px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        input, select{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"]{
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Event Registration Portal</h1>
+
+    <form>
+
+        <label for="name">Full Name</label><br>
+        <input type="text" id="name" required><br><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" required><br><br>
+
+        <label for="phone">Phone Number</label><br>
+        <input type="tel" id="phone" required><br><br>
+
+        <label for="course">Course</label><br>
+        <input type="text" id="course"><br><br>
+
+        <label for="event">Select Event</label><br>
+        <select id="event">
+            <option>Hackathon</option>
+            <option>Coding Competition</option>
+            <option>Technical Workshop</option>
+            <option>Seminar</option>
+        </select><br><br>
+
+        <label for="date">Event Date</label><br>
+        <input type="date" id="date"><br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+
+</body>
+</html>

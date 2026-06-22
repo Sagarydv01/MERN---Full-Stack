@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adjust font sizes for different screen widths</title>
+<style>
+/* Base styles (mobile first) */
+h1 {
+    font-size: 1.8rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<h1>Responsive Heading</h1>
+<p>
+    This text automatically adjusts its size based on the screen width.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+body{
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+#form-container{
+    width: 40vh;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+
+input{
+    width: 90%;
+    padding: 10px;
+}
+
+input[type="submit"]{
+    cursor: pointer;
+}
+
+#message{
+    font-weight: bold;
+}

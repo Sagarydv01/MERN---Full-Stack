@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Interface</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+            font-size: 18px;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .quiz{
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        @media screen and (max-width: 600px){
+            body{
+                background-color: lightblue;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Online Quiz Interface</h1>
+
+    <div class="quiz">
+
+        <h3>1. What does HTML stand for?</h3>
+
+        <input type="radio" name="q1" id="q1a">
+        <label for="q1a">Hyper Text Markup Language</label><br>
+
+        <input type="radio" name="q1" id="q1b">
+        <label for="q1b">High Text Machine Language</label><br>
+
+        <input type="radio" name="q1" id="q1c">
+        <label for="q1c">Hyper Transfer Markup Language</label><br>
+
+        <input type="radio" name="q1" id="q1d">
+        <label for="q1d">Hyper Tool Markup Language</label><br><br>
+
+        <h3>2. Which language is used for styling web pages?</h3>
+
+        <input type="radio" name="q2" id="q2a">
+        <label for="q2a">HTML</label><br>
+
+        <input type="radio" name="q2" id="q2b">
+        <label for="q2b">CSS</label><br>
+
+        <input type="radio" name="q2" id="q2c">
+        <label for="q2c">Python</label><br>
+
+        <input type="radio" name="q2" id="q2d">
+        <label for="q2d">Java</label><br><br>
+
+        <input type="submit" value="Submit Quiz">
+
+    </div>
+
+</body>
+</html>

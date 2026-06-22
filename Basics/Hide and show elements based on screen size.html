@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hide and show elements based on screen size</title>
+<style>
+/* Visible by default */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="desktop-only">
+    This content is visible only on desktop screens.
+</div>
+
+<div class="mobile-only">
+    This content is visible only on mobile screens.
+</div>
+
+</body>
+</html>

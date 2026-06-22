@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Make images responsive</title>
+<style>
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Optional container */
+.image-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<div class="image-container">
+    <img src="mjy12.jpg" alt="Responsive Image">
+    <!-- <img
+    src="image-large.jpg"
+    srcset="
+        image-small.jpg 480w,
+        image-medium.jpg 768w,
+        image-large.jpg 1200w
+    "
+    sizes="
+        (max-width: 480px) 100vw,
+        (max-width: 768px) 100vw,
+        1200px
+    "
+    alt="Responsive Image" -->
+>
+</div>
+
+</body>
+</html>

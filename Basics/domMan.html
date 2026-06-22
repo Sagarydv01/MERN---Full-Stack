@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+
+    <h2 id="lecture">Attending Full Stack Classes</h2>
+
+    <div class="container1">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi mollitia modi reprehenderit quibusdam nemo placeat animi perspiciatis ea molestiae natus voluptatibus nulla quos.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto sequi eveniet rem necessitatibus consequuntur quidem dolore porro.
+        </p>
+    </div>
+
+    <div class="container2">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minus, ipsum exercitationem repellat eligendi.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus! Quod, voluptates.
+        </p>
+    </div>
+
+    <br>
+
+    <button class="btn">Add Paragraph</button>
+    <button class="btn">Change Paragraph Color</button>
+    <button class="btn">Change Heading Text</button>
+    <button class="btn">Add Image</button>
+    <button class="btn">Remove a paragraph from Container 1</button>
+
+
+    <script>
+
+        let container = document.querySelector(".container2");
+        let buttons = document.getElementsByClassName("btn");
+
+
+        buttons[0].addEventListener("click", function () {
+
+            let para = document.createElement("p");
+
+            para.textContent = "Hello, Sagar! This paragraph was added dynamically.";
+
+            container.appendChild(para);
+
+        });
+
+
+        let container1Paras = document.getElementsByTagName("p");
+        let paras = document.querySelectorAll(".container2 p");
+
+        buttons[1].addEventListener("click", function () {
+
+            container1Paras[0].style.color = "blue";
+            container1Paras[1].style.color = "red";
+
+            // paras.forEach(function (p) {
+            //     p.style.color = "blue";
+            // });
+
+            // container.style.backgroundColor = "yellow";
+
+        });
+
+
+        buttons[2].addEventListener("click", function () {
+
+            let heading = document.getElementById("lecture");
+
+            heading.textContent = "Welcome to JavaScript DOM Manipulation";
+
+        });
+
+        buttons[3].addEventListener("click", function () {
+
+            let img = document.createElement("img");
+
+            img.src = "mjy12.jpg";
+            img.alt = "Image";
+            img.width = 400;
+
+            container.appendChild(img);
+
+        });
+        
+        buttons[4].addEventListener("click", () => {
+            container1Paras[0].remove();
+        })
+
+    </script>
+
+</body>
+</html>
