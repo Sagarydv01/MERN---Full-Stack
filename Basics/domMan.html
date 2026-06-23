@@ -11,16 +11,19 @@
 
     <div class="container1">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi mollitia modi reprehenderit quibusdam nemo placeat animi perspiciatis ea molestiae natus voluptatibus nulla quos.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi mollitia modi reprehenderit
+            quibusdam nemo placeat animi perspiciatis ea molestiae natus voluptatibus nulla quos.
         </p>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto sequi eveniet rem necessitatibus consequuntur quidem dolore porro.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto sequi eveniet rem necessitatibus
+            consequuntur quidem dolore porro.
         </p>
     </div>
 
     <div class="container2">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minus, ipsum exercitationem repellat eligendi.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minus, ipsum exercitationem repellat
+            eligendi.
         </p>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus! Quod, voluptates.
@@ -33,7 +36,7 @@
     <button class="btn">Change Paragraph Color</button>
     <button class="btn">Change Heading Text</button>
     <button class="btn">Add Image</button>
-    <button class="btn">Remove a paragraph from Container 1</button>
+    <button class="btn">Remove a paragraph</button>
 
 
     <script>
@@ -52,14 +55,13 @@
 
         });
 
-
-        let container1Paras = document.getElementsByTagName("p");
+        let containerParas = document.getElementsByTagName("p");
         let paras = document.querySelectorAll(".container2 p");
 
         buttons[1].addEventListener("click", function () {
 
-            container1Paras[0].style.color = "blue";
-            container1Paras[1].style.color = "red";
+            containerParas[0].style.color = "blue";
+            containerParas[1].style.color = "red";
 
             // paras.forEach(function (p) {
             //     p.style.color = "blue";
@@ -89,12 +91,33 @@
             container.appendChild(img);
 
         });
-        
+
+        // Remove paragraph 
         buttons[4].addEventListener("click", () => {
-            container1Paras[0].remove();
+            containerParas[0].remove();
         })
+
+        // Remove paragraph upon clicking
+        let removePara = document.querySelectorAll("p");
+
+        removePara.forEach((p) => {
+            p.addEventListener("click", () => {
+                p.remove();
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            e.target.style.color = "red";
+        })
+        /* 
+        document.addEventListener("click", (e) => {
+            if (e.target.tagName === "P") {
+                e.target.remove();
+            }
+        }); */
 
     </script>
 
 </body>
+
 </html>
