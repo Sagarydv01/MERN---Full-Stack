@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input,
+        select {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: antiquewhite;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+
+        #formBox {
+            max-width: 400px;
+            margin: auto;
+            padding: 10px;
+            background-color: rgb(175, 157, 157);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        #formBox,
+        #tableBox {
+            max-width: 700px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="formBox">
+        <h2>Student Registration</h2>
+
+        <input type="text" id="name" placeholder="Enter Name">
+        <br>
+
+        <input type="email" id="email" placeholder="Enter Email">
+        <br>
+
+        <label for="course">Select Course:</label>
+        <select id="course">
+            <!-- <option value="" selected disabled>Select Course</option> -->
+            <option>MCA</option>
+            <option>BCA</option>
+            <option>BTech</option>
+            <option>BCom</option>
+        </select>
+
+        <br><br>
+
+        <button id="registerBtn">Register</button>
+
+    </div>
+    <hr>
+    <div id="tableBox">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody">
+
+            </tbody>
+        </table> <br>
+        <button id="deleteAllBtn">Delete All</button>
+    </div>
+
+    <script>
+
+        let registerBtn = document.getElementById("registerBtn");
+        let tableBody = document.getElementById("tableBody");
+        let deleteAllBtn = document.getElementById("deleteAllBtn");
+
+        registerBtn.addEventListener("click", function () {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let course = document.getElementById("course").value;
+
+            if (name === "" || email === "" || course === "") {
+                alert("Please fill all fields");
+                return;
+            }
+
+            let row = document.createElement("tr");
+
+            let tdName = document.createElement("td");
+            let tdEmail = document.createElement("td");
+            let tdCourse = document.createElement("td");
+            let tdAction = document.createElement("td");
+
+            tdName.textContent = name;
+            tdEmail.textContent = email;
+            tdCourse.textContent = course;
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+
+            tdAction.appendChild(deleteBtn);
+
+            row.appendChild(tdName);
+            row.appendChild(tdEmail);
+            row.appendChild(tdCourse);
+            row.appendChild(tdAction);
+
+            tableBody.appendChild(row);
+
+            deleteBtn.addEventListener("click", function () {
+                row.remove();
+            });
+
+            deleteAllBtn.addEventListener("click", () => {
+                tableBody.innerHTML = "";
+            });
+
+            // document.getElementById("name").value = "";
+            // document.getElementById("email").value = "";
+            // document.getElementById("course").selectedIndex = 0;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar Yadav Portfolio</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+nav{
+    background:#333;
+    padding:15px;
+    text-align:center;
+}
+
+nav button{
+    padding:8px 15px;
+    margin:5px;
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+    padding:20px;
+}
+
+.active{
+    display:block;
+}
+
+.card{
+    background:white;
+    border:1px solid #ccc;
+    padding:15px;
+    margin-top:15px;
+}
+
+.dark .card{
+    background:#444;
+}
+
+.profile{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    display:block;
+    margin:auto;
+}
+
+h1,h2{
+    text-align:center;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+.gallery{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.gallery img{
+    width:250px;
+    cursor:pointer;
+}
+
+#popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    text-align:center;
+}
+
+#popup img{
+    margin-top:50px;
+    max-width:80%;
+}
+
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('education')">Education</button>
+    <button onclick="showPage('skills')">Skills</button>
+    <button onclick="showPage('projects')">Projects</button>
+    <button onclick="showPage('gallery')">Gallery</button>
+    <button onclick="showPage('contact')">Contact</button>
+    <button onclick="toggleTheme()">Dark Mode</button>
+</nav>
+
+<section id="home" class="page active">
+
+    <img src="images/profile.jpg" class="profile">
+
+    <h1>Sagar Yadav</h1>
+
+    <h3 id="typing"></h3>
+
+</section>
+
+<section id="about" class="page">
+
+    <h2>About Me</h2>
+
+    <div class="card">
+        <p>
+            MCA Student at LIET.
+            Interested in Web Development,
+            Cybersecurity, Linux and Networking.
+        </p>
+    </div>
+
+</section>
+
+<section id="education" class="page">
+
+    <h2>Education</h2>
+
+    <div class="card">
+
+        <table>
+
+            <tr>
+                <th>Qualification</th>
+                <th>Institute</th>
+                <th>Year</th>
+            </tr>
+
+            <tr>
+                <td>MCA</td>
+                <td>LIET</td>
+                <td>Pursuing</td>
+            </tr>
+
+            <tr>
+                <td>BCA</td>
+                <td>TIIPS</td>
+                <td>2025</td>
+            </tr>
+
+            <tr>
+                <td>12th</td>
+                <td>Suditi Global Academy</td>
+                <td>2022</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section id="skills" class="page">
+
+    <h2>Skills</h2>
+
+    <div class="card">
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>C Programming</li>
+            <li>Linux</li>
+            <li>Git & GitHub</li>
+            <li>Cybersecurity</li>
+        </ul>
+    </div>
+
+</section>
+
+<section id="projects" class="page">
+
+    <h2>Projects</h2>
+
+    <div id="projectContainer"></div>
+
+</section>
+
+<section id="gallery" class="page">
+
+    <h2>Gallery</h2>
+
+    <div class="gallery">
+
+        <img src="images/project1.png"
+             onclick="showImage(this.src)">
+
+        <img src="images/project2.png"
+             onclick="showImage(this.src)">
+
+        <img src="images/college.jpg"
+             onclick="showImage(this.src)">
+
+    </div>
+
+</section>
+
+<section id="contact" class="page">
+
+    <h2>Contact</h2>
+
+    <div class="card">
+
+        <p>Email: sagaryadavmca25-27@liet.in</p>
+
+        <p>
+            <a href="resume.pdf" target="_blank">
+                View Resume
+            </a>
+        </p>
+
+        <p>
+            <a href="https://github.com/Sagarydv01"
+               target="_blank">
+               GitHub
+            </a>
+        </p>
+
+        <p>
+            <a href="https://www.linkedin.com/in/sagarydv01"
+               target="_blank">
+               LinkedIn
+            </a>
+        </p>
+
+        <p>
+            <a href="https://leetcode.com/u/Sagydv01"
+               target="_blank">
+               LeetCode
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+<div id="popup"
+     onclick="this.style.display='none'">
+
+    <img id="popupImg">
+
+</div>
+
+<footer>
+    © 2026 Sagar Yadav
+</footer>
+
+<script>
+
+function showPage(id){
+
+    let pages =
+    document.querySelectorAll(".page");
+
+    pages.forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+}
+
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+}
+
+function showImage(src){
+
+    document
+    .getElementById("popupImg")
+    .src = src;
+
+    document
+    .getElementById("popup")
+    .style.display = "block";
+}
+
+const projects = [
+
+{
+title:"Hospital Management System",
+desc:"Hospital records and appointment management."
+},
+
+{
+title:"Classroom Resource Management",
+desc:"Tracks educational resources."
+},
+
+{
+title:"Student Portfolio Website",
+desc:"Portfolio using HTML, CSS and JavaScript."
+}
+
+];
+
+let output = "";
+
+projects.forEach(project=>{
+
+output += `
+<div class="card">
+<h3>${project.title}</h3>
+<p>${project.desc}</p>
+</div>
+`;
+
+});
+
+document.getElementById(
+"projectContainer"
+).innerHTML = output;
+
+let text =
+"MCA Student | Web Developer | Cybersecurity Enthusiast";
+
+let i = 0;
+
+function type(){
+
+if(i < text.length){
+
+document.getElementById(
+"typing"
+).innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(type,80);
+
+}
+
+}
+
+type();
+
+</script>
+
+</body>
+</html>

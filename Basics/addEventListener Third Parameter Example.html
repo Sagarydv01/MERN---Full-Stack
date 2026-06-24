@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener Third Parameter Example</title>
+</head>
+<body>
+
+    <div id="parent" style="padding:40px; background:lightblue;">
+        Parent Div
+
+        <button id="child">
+            Click Me
+        </button>
+        
+    </div>
+
+    <script>
+
+        let parent = document.getElementById("parent");
+        let child = document.getElementById("child");
+
+        // Capturing Phase
+        parent.addEventListener("click", function () {
+            console.log("Parent (Capture)");
+        }, true);
+
+        // Bubbling Phase
+        parent.addEventListener("click", function () {
+            console.log("Parent (Bubble)");
+        }, false);
+
+        child.addEventListener("click", function () {
+            console.log("Button Clicked");
+        });
+
+    </script>
+
+</body>
+</html>

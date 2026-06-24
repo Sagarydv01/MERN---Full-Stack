@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: antiquewhite;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: lightblue;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .card {
+            background-color: floralwhite;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .profile-img {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        a.link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a.link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a onclick="showHome()">Home</a>
+        <a onclick="showProfile()">Profile</a>
+        <a onclick="showEducation()">Education</a>
+        <a onclick="showSkills()">Skills</a>
+        <a onclick="showProjects()">Projects</a>
+        <a onclick="showContact()">Contact</a>
+        <a onclick="showGallery()">Gallery</a>
+    </nav>
+
+    <div id="content">
+
+        <h2>Welcome</h2>
+
+        <div class="card">
+            <img src="mjy12.jpg" alt="Profile Photo" class="profile-img">
+
+            <h3 style="text-align:center;">Sagar Yadav</h3>
+
+            <p style="text-align:center;">
+                MCA Student | Web Developer | Cybersecurity Enthusiast
+            </p>
+        </div>
+        
+
+    </div>
+
+    <script>
+
+        function showHome() {
+            document.getElementById("content").innerHTML = `
+                <h2>Welcome</h2>
+
+                <div class="card">
+                    <img src="mjy12.jpg" alt="Profile Photo" class="profile-img">
+
+                    <h3 style="text-align:center;">Sagar Yadav</h3>
+
+                    <p style="text-align:center;">
+                        MCA Student | Web Developer | Cybersecurity Enthusiast
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>About Me</h3>
+
+                    <p>
+                        I am pursuing MCA at Lloyd Institute of Engineering and Technology.
+                        I have interests in Web Development, Software Development,
+                        Linux, Networking, and Cybersecurity.
+                    </p>
+                </div>
+            `;
+        }
+
+        function showProfile() {
+            document.getElementById("content").innerHTML = `
+                <h2>Student Profile</h2>
+
+                <div class="card">
+                    <p><b>Name:</b> Sagar Yadav</p>
+                    <p><b>Roll No:</b> 2501530140102</p>
+                    <p><b>Course:</b> MCA</p>
+                    <p><b>College:</b> Lloyd Institute of Engineering and Technology</p>
+                    <p><b>Location:</b> Greater Noida, Uttar Pradesh</p>
+                </div>
+
+                <div class="card">
+                    <h3>Career Objective</h3>
+
+                    <p>
+                        To build a strong career in software development and cybersecurity
+                        while continuously improving technical and problem-solving skills.
+                    </p>
+                </div>
+            `;
+        }
+
+        function showEducation() {
+            document.getElementById("content").innerHTML = `
+                <h2>Education Details</h2>
+
+                <div class="card">
+                    <table>
+                        <tr>
+                            <th>Qualification</th>
+                            <th>Institute</th>
+                            <th>Year</th>
+                        </tr>
+
+                        <tr>
+                            <td>MCA</td>
+                            <td>LIET</td>
+                            <td>Pursuing</td>
+                        </tr>
+
+                        <tr>
+                            <td>BCA</td>
+                            <td>TIIPS</td>
+                            <td>2025</td>
+                        </tr>
+
+                        <tr>
+                            <td>12th</td>
+                            <td>Suditi Global Academy</td>
+                            <td>2022</td>
+                        </tr>
+
+                        <tr>
+                            <td>10th</td>
+                            <td>Suditi Global Academy</td>
+                            <td>2020</td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+        }
+
+        function showSkills() {
+            document.getElementById("content").innerHTML = `
+                <h2>Technical Skills</h2>
+
+                <div class="card">
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>C Programming</li>
+                        <li>Linux</li>
+                        <li>Networking Fundamentals</li>
+                        <li>Cybersecurity Basics</li>
+                        <li>Git & GitHub</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function showProjects() {
+            document.getElementById("content").innerHTML = `
+                <h2>Projects</h2>
+
+                <div class="card">
+                    <h3>Hospital Management System</h3>
+                    <p>
+                        A project developed for managing hospital records,
+                        patients, doctors, and appointments.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Classroom Resource Management System</h3>
+                    <p>
+                        Tracks and manages classroom resources like projectors,
+                        computers, and teaching equipment.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Student Information Website</h3>
+                    <p>
+                        A single-page website built using HTML, CSS, and JavaScript
+                        to display student information dynamically.
+                    </p>
+                </div>
+            `;
+        }
+
+        function showContact() {
+            document.getElementById("content").innerHTML = `
+                <h2>Contact Information</h2>
+
+                <div class="card">
+                    <p><b>Email:</b> sagaryadavmca25-27@liet.in</p>
+                    <p><b>Phone:</b> +91 XXXXX XXXXX</p>
+                </div>
+
+                <div class="card">
+                    <h3>Social Profiles</h3>
+
+                    <p>
+                        <a class="link" href="https://github.com/Sagarydv01" target="_blank">
+                            GitHub
+                        </a>
+                    </p>
+
+                    <p>
+                        <a class="link" href="https://www.linkedin.com/in/sagarydv01" target="_blank">
+                            LinkedIn
+                        </a>
+                    </p>
+
+                    <p>
+                        <a class="link" href="https://leetcode.com/u/Sagydv01" target="_blank">
+                            LeetCode
+                        </a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <a class="link" href="resume.pdf" download>
+                        Download Resume
+                    </a>
+                </div>
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Data Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+
+        select {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Registration</h2>
+
+    <input type="text" id="name" placeholder="Enter Name"> <br>
+    <input type="email" id="email" placeholder="Enter Email"> <br>
+    <label for="course">Select Course: </label>
+    <select id="course">
+            <option>MCA</option>
+            <option>BCA</option>
+            <option>BTech</option>
+            <option>BCom</option>
+        </select>
+        <br><br>
+
+    <button id="registerBtn">Register</button>
+
+    <hr>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <hr>
+    
+    <script>
+        const registerBtn = document.getElementById("registerBtn");
+        const tbody = document.querySelector("#studentTable tbody");
+
+        registerBtn.addEventListener("click", () => {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let course = document.getElementById("course").value;
+
+            if (name === "" || email === "" || course === "") {
+                alert("Please fill all fields");
+                return;
+            }
+
+            let row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${course}</td>
+                <td><button class="deleteBtn">Delete</button></td>
+            `;
+
+            tbody.appendChild(row);
+            /* 
+            // Clear input fields after adding data
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("course").value = ""; */
+        });
+
+        tbody.addEventListener("click", (e) => {
+
+            if (e.target.classList.contains("deleteBtn")) {
+                e.target.closest("tr").remove();
+            }
+
+        });
+    </script>
+
+</body>
+</html>

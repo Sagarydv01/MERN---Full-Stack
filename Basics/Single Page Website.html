@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Page Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        nav {
+            background: #333;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <div id="home" class="page active">
+        <h1>Home Page</h1>
+        <p>Welcome to my website.</p>
+    </div>
+
+    <div id="about" class="page">
+        <h1>About Page</h1>
+        <p>This is the about section.</p>
+    </div>
+
+    <div id="contact" class="page">
+        <h1>Contact Page</h1>
+        <p>Email: example@email.com</p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+
+            let pages = document.querySelectorAll('.page');
+
+            pages.forEach(function(page) {
+                page.classList.remove('active');
+            });
+
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
