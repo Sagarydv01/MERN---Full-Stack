@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 420px;
+  }
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 14px;
+  }
+  input, select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: #764ba2;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #764ba2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover {
+    background: #5e3a82;
+  }
+  .error {
+    color: #d33;
+    font-size: 12px;
+    margin: -12px 0 12px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Create Account</h2>
+  <form id="registrationForm" novalidate>
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" required>
+    <span class="error" id="fullNameError">Please enter your full name.</span>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+    <span class="error" id="emailError">Please enter a valid email.</span>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+    <span class="error" id="phoneError">Please enter your phone number.</span>
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+      <option value="">-- Select --</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+    <span class="error" id="passwordError">Password must be at least 6 characters.</span>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // stop normal page reload
+
+  let isValid = true;
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const gender = document.getElementById('gender').value;
+  const password = document.getElementById('password').value;
+
+  // simple validations
+  document.getElementById('fullNameError').style.display = fullName ? 'none' : 'block';
+  if (!fullName) isValid = false;
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.getElementById('emailError').style.display = emailPattern.test(email) ? 'none' : 'block';
+  if (!emailPattern.test(email)) isValid = false;
+
+  document.getElementById('phoneError').style.display = phone.length >= 7 ? 'none' : 'block';
+  if (phone.length < 7) isValid = false;
+
+  document.getElementById('passwordError').style.display = password.length >= 6 ? 'none' : 'block';
+  if (password.length < 6) isValid = false;
+
+  if (!isValid) return;
+
+  // Store data so the next page can read it (acts like a POST payload)
+  const formData = {
+    fullName: fullName,
+    email: email,
+    phone: phone,
+    gender: gender || 'Not specified',
+    password: password // Note: never store real passwords like this in production
+  };
+
+  sessionStorage.setItem('registrationData', JSON.stringify(formData));
+
+  // Navigate to the results page
+  window.location.href = 'welcome.html';
+});
+</script>
+
+</body>
+</html>

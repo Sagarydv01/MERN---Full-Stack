@@ -66,25 +66,26 @@
 
     <div id="formBox">
         <h2>Student Registration</h2>
+        <form action="" method="">
+            <input type="text" id="name" placeholder="Enter Name">
+            <br>
 
-        <input type="text" id="name" placeholder="Enter Name">
-        <br>
+            <input type="email" id="email" placeholder="Enter Email">
+            <br>
 
-        <input type="email" id="email" placeholder="Enter Email">
-        <br>
+            <label for="course">Select Course:</label>
+            <select id="course">
+                <option value="" selected disabled>Select Course</option>
+                <option>MCA</option>
+                <option>BCA</option>
+                <option>BTech</option>
+                <option>BCom</option>
+            </select>
 
-        <label for="course">Select Course:</label>
-        <select id="course">
-            <!-- <option value="" selected disabled>Select Course</option> -->
-            <option>MCA</option>
-            <option>BCA</option>
-            <option>BTech</option>
-            <option>BCom</option>
-        </select>
+            <br><br>
 
-        <br><br>
-
-        <button id="registerBtn">Register</button>
+            <button id="registerBtn" type="button">Register</button>
+        </form>
 
     </div>
     <hr>
@@ -154,9 +155,10 @@
                 tableBody.innerHTML = "";
             });
 
-            // document.getElementById("name").value = "";
-            // document.getElementById("email").value = "";
-            // document.getElementById("course").selectedIndex = 0;
+            // clear the form
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("course").selectedIndex = 0;
 
         });
 

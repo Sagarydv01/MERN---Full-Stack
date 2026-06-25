@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Successful</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+  }
+  .card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+  }
+  h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 10px;
+  }
+  p.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+  table td:first-child {
+    font-weight: 600;
+    color: #555;
+    width: 40%;
+  }
+  table td:last-child {
+    color: #222;
+    word-break: break-word;
+  }
+  .btn {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    padding: 12px;
+    background: #764ba2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .btn:hover {
+    background: #5e3a82;
+  }
+  .empty {
+    text-align: center;
+    color: #999;
+    padding: 20px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>🎉 Registration Successful!</h2>
+  <p class="subtitle">Here are the details you submitted:</p>
+
+  <table id="dataTable">
+    <!-- Filled in by JavaScript -->
+  </table>
+
+  <a href="registration.html" class="btn">Register Another</a>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  const raw = sessionStorage.getItem('registrationData');
+  const table = document.getElementById('dataTable');
+
+  if (!raw) {
+    table.innerHTML = '<tr><td class="empty" colspan="2">No registration data found. Please fill the form first.</td></tr>';
+    return;
+  }
+
+  const data = JSON.parse(raw);
+
+  const fields = [
+    { label: 'Full Name', key: 'fullName' },
+    { label: 'Email', key: 'email' },
+    { label: 'Phone', key: 'phone' },
+    { label: 'Gender', key: 'gender' },
+    { label: 'Password', key: 'password' }
+  ];
+
+  let rowsHtml = '';
+  fields.forEach(function (field) {
+    const value = data[field.key] || '—';
+    rowsHtml += '<tr><td>' + field.label + '</td><td>' + escapeHtml(value) + '</td></tr>';
+  });
+
+  table.innerHTML = rowsHtml;
+});
+
+// Basic protection against HTML injection when displaying user input
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>

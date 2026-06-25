@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Page</title>
+</head>
+
+<body>
+
+    <h2>Submitted Data</h2>
+
+    <p id="showName"></p>
+    <p id="showEmail"></p>
+    <p id="showPhone"></p>
+
+    <script>
+        let name = localStorage.getItem("userName");
+        let email = localStorage.getItem("userEmail");
+        let phone = localStorage.getItem("userPhone")
+
+        document.getElementById("showName").textContent = name;
+        document.getElementById("showEmail").textContent = email;
+        document.getElementById("showPhone").textContent = phone;
+
+        document.getElementById("showName").textContent =
+            "Name: " + name;
+
+        document.getElementById("showEmail").textContent =
+            "Email: " + email;
+
+        document.getElementById("showPhone").textContent =
+            "Phone: " + phone;
+    </script>
+
+</body>
+
+</html>
