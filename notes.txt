@@ -1,3 +1,0 @@
-JSON - JS Object Notation
-Object - bunch of data
-Normal text vs Formatted text - 
